@@ -40,9 +40,15 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
-def post_upvote(request):
-    post.upvote = post.upvote + 1
+def post_upvote(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        post.upvote = post.upvote + 1
+    return redirect('post_list')
 
-def post_downvote(request):
-    post.downvote = post.downvote + 1
+def post_downvote(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        post.downvote = post.downvote + 1
+    return redirect('post_list')
 
