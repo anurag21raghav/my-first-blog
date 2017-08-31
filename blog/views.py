@@ -44,11 +44,13 @@ def post_upvote(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':
         post.upvote = post.upvote + 1
+        post.save()
     return redirect('post_list')
 
 def post_downvote(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':
         post.downvote = post.downvote + 1
+        post.save()
     return redirect('post_list')
 

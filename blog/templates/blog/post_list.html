@@ -11,7 +11,7 @@
             {{ post.author }}
              <button type="button"><a href="{% url 'post_upvote' pk=post.pk %}">Upvote</button>
              {{ post.upvote }}
-             <button type="button"><a href="{% url 'post_downvote' %}">Downvote</button> 
+             <button type="button"><a href="{% url 'post_downvote' pk=post.pk %}">Downvote</button> 
              {{ post.downvote }}
         </div>
     {% endfor %}
