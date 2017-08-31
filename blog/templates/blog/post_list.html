@@ -9,6 +9,10 @@
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
             {{ post.author }}
+             <button type="button"><a href="{% url 'post_upvote' %}">Upvote</button>
+             {{ post.upvote }}
+             <button type="button"><a href="{% url 'post_downvote' %}">Downvote</button> 
+             {{ post.downvote }}
         </div>
     {% endfor %}
 {% endblock %}

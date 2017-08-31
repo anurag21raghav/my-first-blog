@@ -40,3 +40,9 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+def post_upvote(request):
+    post.upvote = post.upvote + 1
+
+def post_downvote(request):
+    post.downvote = post.downvote + 1
+
